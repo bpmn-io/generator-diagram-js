@@ -1,6 +1,6 @@
 {
   "name": "generator-diagram-js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate diagram-js extension components",
   "homepage": "https://github.com/bpmn-io/generator-diagram-js",
   "author": {
