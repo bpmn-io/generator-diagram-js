@@ -2,6 +2,8 @@
 
 const Generator = require('yeoman-generator');
 
+const chalk = require('chalk');
+
 const {
   toServiceName,
   toServiceClass
@@ -72,9 +74,8 @@ module.exports = class extends Generator {
     this.props.generateModule = !this.fs.exists(this.props.modulePath);
 
     if (this.props.generateModule) {
-      this.log(
-        'We will generate the corresponding module for your service, too'
-      );
+
+      this.log(chalk.bold('# generating service module'));
 
       if (typeof this.props.initializeService === 'undefined') {
         const { initializeService } = await this.prompt([
@@ -91,8 +92,8 @@ module.exports = class extends Generator {
 
     } else {
       this.log(
-        'Module exists at %s, you have to add your service to it manually',
-        this.props.modulePath
+        chalk.bold('# Module exists at %s, you have to add your service to it manually'),
+        chalk.cyan(this.props.modulePath)
       );
     }
   }
