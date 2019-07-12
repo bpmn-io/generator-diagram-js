@@ -40,14 +40,7 @@ module.exports = class extends Generator {
       githubRepository: this.options.githubRepository
     };
 
-    if (this.props.projectName.includes('/')) {
-      this.props.publishConfig = `
-  "publishConfig": {
-    "access": "public"
-  },`;
-    } else {
-      this.props.publishConfig = '';
-    }
+    this.props.localPackage = this.props.projectName.includes('/');
   }
 
   writing() {
@@ -57,7 +50,7 @@ module.exports = class extends Generator {
       authorName,
       authorUrl,
       githubRepository,
-      publishConfig,
+      localPackage,
       serviceName,
       serviceCls
     } = this.props;
@@ -86,7 +79,7 @@ module.exports = class extends Generator {
         authorName,
         authorUrl,
         githubRepository,
-        publishConfig,
+        localPackage,
         currentYear,
         serviceName,
         serviceCls

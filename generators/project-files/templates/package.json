@@ -7,7 +7,11 @@
     "all": "run-s lint test",
     "lint": "eslint .",
     "test": "karma start"
-  }, <%- publishConfig %>
+  }, <% if (localPackage) { %>
+  "publishConfig": {
+    "access": "public"
+  },
+<% } %>
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/<%= githubRepository %>.git"
@@ -26,7 +30,7 @@
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-bpmn-io": "^0.8.2",
-    "karma": "^3.1.4",
+    "karma": "^4.1.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
