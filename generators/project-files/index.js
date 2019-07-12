@@ -41,10 +41,10 @@ module.exports = class extends Generator {
     };
 
     if (this.props.projectName.includes('/')) {
-      this.props.publishConfig = `,
+      this.props.publishConfig = `
   "publishConfig": {
     "access": "public"
-  }`;
+  },`;
     } else {
       this.props.publishConfig = '';
     }

@@ -7,8 +7,7 @@
     "all": "run-s lint test",
     "lint": "eslint .",
     "test": "karma start"
-  },
-  <%= publishConfig %>
+  }, <%- publishConfig %>
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/<%= githubRepository %>.git"
