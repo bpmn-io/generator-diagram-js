@@ -11,7 +11,7 @@ export default {
    * Put names of services to be initialized
    * on module load here
    */
-  __init__: [ <%= initializeService ? serviceName : '' %> ],
+  __init__: [ <%= initializeService ? ("'" + serviceName + "'") : '' %> ],
 
-  <%= serviceName %>: [ 'type', <%= serviceCls %> ]
+  '<%= serviceName %>': [ 'type', <%= serviceCls %> ]
 };

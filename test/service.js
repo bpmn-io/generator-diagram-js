@@ -9,7 +9,8 @@ describe('generator-diagram-js:service', () => {
       .run(path.join(__dirname, '../generators/service'))
       .withPrompts({
         serviceName: 'Foo',
-        serviceLocation: '.'
+        serviceLocation: '.',
+        initializeService: true
       });
   });
 
@@ -18,7 +19,7 @@ describe('generator-diagram-js:service', () => {
 
     assert.fileContent([
       ['Foo.js', /export default function Foo\(eventBus\)/],
-      ['index.js', /import Foo from '\.\/Foo';/]
+      ['index.js', /import Foo from '\.\/Foo';/, /__init__: [ 'foo' ],/ ]
     ]);
   });
 });
