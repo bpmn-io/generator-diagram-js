@@ -33,6 +33,11 @@ describe('generator-diagram-js:project-files', () => {
         '.travis.yml'
       ]);
 
+      assert.noFile([
+        '.npmignore.tpl',
+        '.npmignore.tpl/.npmignore'
+      ]);
+
       assert.fileContent([
         ['README.md', /# bar/],
         ['package.json', /"name": "bar",/]
@@ -74,5 +79,7 @@ describe('generator-diagram-js:project-files', () => {
         ['package.json', /"name": "@foo\/bar",/, /"publishConfig": / ]
       ]);
     });
+
   });
+
 });

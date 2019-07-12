@@ -77,8 +77,8 @@ module.exports = class extends Generator {
     });
 
     this.fs.copy(this.templatePath('**/.eslintrc'), this.destinationPath('.'));
-    this.fs.copy(this.templatePath('**/.gitignore'), this.destinationPath('.'));
-    this.fs.copy(this.templatePath('**/.npmignore.tpl'), this.destinationPath('.npmignore'));
-    this.fs.copy(this.templatePath('**/.travis.yml'), this.destinationPath('.'));
+    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('.npmignore.tpl'), this.destinationPath('.npmignore'));
+    this.fs.copy(this.templatePath('.travis.yml'), this.destinationPath('.travis.yml'));
   }
 };
