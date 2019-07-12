@@ -18,7 +18,8 @@ npm install -g yo generator-diagram-js
 Scaffold all things!
 
 ```bash
-yo diagram-js
+yo diagram-js:project
+yo diagram-js:service
 ```
 
 ## License
