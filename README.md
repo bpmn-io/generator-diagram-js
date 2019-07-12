@@ -2,7 +2,7 @@
 
 [![Build Status][travis-image]][travis-url]
 
-[Yo](https://yeoman.io) generators for common [diagram-js] components.
+[Yo](https://yeoman.io) generators for common [diagram-js](https://github.com/bpmn-io/diagram-js) components.
 
 
 ## Installation
