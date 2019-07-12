@@ -1,0 +1,39 @@
+{
+  "name": "generator-diagram-js",
+  "version": "0.0.0",
+  "description": "Generate diagram-js extension components",
+  "homepage": "https://github.com/bpmn-io/generator-diagram-js",
+  "author": {
+    "name": "Nico Rehwaldt",
+    "url": "https://github.com/nikku"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "diagram-js",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-plugin-bpmn-io": "^0.8.2",
+    "mocha": "^6.1.4",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "yeoman-generator": "^2.0.1"
+  },
+  "scripts": {
+    "all": "npm test",
+    "pretest": "eslint .",
+    "test": "mocha"
+  },
+  "repository": "bpmn-io/generator-diagram-js",
+  "license": "MIT"
+}
