@@ -77,13 +77,13 @@ module.exports = class extends Generator {
       githubRepository
     } = this.props;
 
-    const projectPath = toShortName(projectName);
+    this.props.projectPath = toShortName(projectName);
 
-    this.log(chalk.yellow('#'), chalk.bold('creating project in folder'), chalk.cyan(projectPath));
+    this.log(chalk.yellow('#'), chalk.bold('creating project in folder'), chalk.cyan(this.props.projectPath));
 
-    this.destinationRoot(this.destinationPath(projectPath));
+    this.destinationRoot(this.destinationPath(this.props.projectPath));
 
-    const camelCasedPath = toCamelCase(projectPath);
+    const camelCasedPath = toCamelCase(this.props.projectPath);
 
     const serviceName = toServiceName(camelCasedPath);
     const serviceCls = toServiceClass(camelCasedPath);
@@ -119,7 +119,7 @@ module.exports = class extends Generator {
     this.log();
     this.log(chalk.yellow('#'), chalk.bold('all done'));
     this.log();
-    this.log('# you may now run %s in the project directory %s', chalk.bold('npm run all'), chalk.bold.red('❤️'));
+    this.log(chalk.yellow('#'), 'you may now run', chalk.bold('npm run all'), 'in the', chalk.cyan(this.props.projectPath), 'directory', chalk.bold.red('❤️'));
   }
 
 };
