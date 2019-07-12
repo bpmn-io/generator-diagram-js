@@ -34,8 +34,7 @@ describe('generator-diagram-js:project-files', () => {
       ]);
 
       assert.noFile([
-        '.npmignore.tpl',
-        '.npmignore.tpl/.npmignore'
+        '.npmignore.tpl'
       ]);
 
       assert.fileContent([

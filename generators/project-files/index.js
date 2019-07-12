@@ -64,21 +64,36 @@ module.exports = class extends Generator {
 
     const currentYear = new Date().getFullYear();
 
-    this.fs.copyTpl(this.templatePath('**/*'), this.destinationPath('.'), {
-      projectName,
-      projectDescription,
-      authorName,
-      authorUrl,
-      githubRepository,
-      publishConfig,
-      currentYear,
-      serviceName,
-      serviceCls
-    });
+    const files = [
+      'test/.eslintrc',
+      'test/process.bpmn',
+      'test/test.js',
+      '.eslintrc',
+      '.gitignore',
+      '.travis.yml',
+      'CHANGELOG.md',
+      'karma.conf.js',
+      'LICENSE',
+      'package.json',
+      'README.md'
+    ];
 
-    this.fs.copy(this.templatePath('**/.eslintrc'), this.destinationPath('.'));
-    this.fs.copy(this.templatePath('.gitignore'), this.destinationPath('.gitignore'));
+    for (const file of files) {
+
+      this.fs.copyTpl(this.templatePath(file), this.destinationPath(file), {
+        projectName,
+        projectDescription,
+        authorName,
+        authorUrl,
+        githubRepository,
+        publishConfig,
+        currentYear,
+        serviceName,
+        serviceCls
+      });
+    }
+
     this.fs.copy(this.templatePath('.npmignore.tpl'), this.destinationPath('.npmignore'));
-    this.fs.copy(this.templatePath('.travis.yml'), this.destinationPath('.travis.yml'));
   }
+
 };
