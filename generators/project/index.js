@@ -31,7 +31,7 @@ module.exports = class extends Generator {
         name: 'projectDescription',
         message: 'Short description of your project',
         validate: function(name) {
-          if (!/"/.test(name)) {
+          if (/"/.test(name)) {
             return 'Must not contain <">';
           }
 
@@ -43,7 +43,7 @@ module.exports = class extends Generator {
         name: 'githubRepository',
         message: 'Name of your github repository (org/repo)',
         validate: function(name) {
-          if (!name.contains('/')) {
+          if (!name.includes('/')) {
             return 'Must match org/repo';
           }
 
