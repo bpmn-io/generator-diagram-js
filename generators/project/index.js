@@ -79,7 +79,7 @@ module.exports = class extends Generator {
 
     const projectPath = toShortName(projectName);
 
-    this.log('#', chalk.bold('creating project in folder'), chalk.cyan(projectPath));
+    this.log(chalk.yellow('#'), chalk.bold('creating project in folder'), chalk.cyan(projectPath));
 
     this.destinationRoot(this.destinationPath(projectPath));
 
@@ -98,7 +98,7 @@ module.exports = class extends Generator {
       serviceCls
     });
 
-    this.log('#', chalk.bold('creating service'), chalk.cyan(serviceName));
+    this.log(chalk.yellow('#'), chalk.bold('creating service'), chalk.cyan(serviceName));
 
     this.composeWith(require.resolve('../service'), {
       serviceName,
@@ -110,14 +110,14 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.log('#', chalk.bold('installing dependencies'));
+    this.log(chalk.yellow('#'), chalk.bold('installing dependencies'));
 
     this.npmInstall();
   }
 
   end() {
     this.log();
-    this.log('#', chalk.bold('all done'));
+    this.log(chalk.yellow('#'), chalk.bold('all done'));
     this.log();
     this.log('# you may now run %s in the project directory %s', chalk.bold('npm run all'), chalk.bold.red('❤️'));
   }
