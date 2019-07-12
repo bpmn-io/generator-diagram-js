@@ -2,6 +2,8 @@
 
 const Generator = require('yeoman-generator');
 
+const chalk = require('chalk');
+
 const {
   toShortName,
   toServiceClass,
@@ -77,7 +79,7 @@ module.exports = class extends Generator {
 
     const projectPath = toShortName(projectName);
 
-    this.log('Will create project in %s', projectPath);
+    this.log('# will create project in %s', chalk.bold(projectPath));
 
     this.destinationRoot(this.destinationPath(projectPath));
 
@@ -86,12 +88,7 @@ module.exports = class extends Generator {
     const serviceName = toServiceName(camelCasedPath);
     const serviceCls = toServiceClass(camelCasedPath);
 
-    this.composeWith(require.resolve('../service'), {
-      serviceName,
-      serviceCls,
-      serviceLocation: '.',
-      initializeService: true
-    });
+    this.log('# copying boilerplate');
 
     this.composeWith(require.resolve('../project-files'), {
       projectName,
@@ -103,10 +100,27 @@ module.exports = class extends Generator {
       serviceCls
     });
 
+    this.log('# creating initial service %s', chalk.bold(serviceName));
+
+    this.composeWith(require.resolve('../service'), {
+      serviceName,
+      serviceCls,
+      serviceLocation: '.',
+      initializeService: true
+    });
+
   }
 
   install() {
+    this.log('# installing dependencies, please hang tight');
+
     this.npmInstall();
+
+  }
+
+  end() {
+    this.log('# all done.');
+    this.log('# you may now run %s in the project directory ❤️.', chalk.bold('npm run all'));
   }
 
 };
