@@ -1,9 +1,7 @@
 import {
   bootstrapViewer,
-  getBpmnJS
+  inject
 } from 'bpmn-js/test/helper';
-
-import BpmnJS from 'bpmn-js';
 
 import <%= serviceCls %>Module from '..';
 
