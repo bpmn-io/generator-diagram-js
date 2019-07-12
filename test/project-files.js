@@ -5,31 +5,64 @@ const helpers = require('yeoman-test');
 
 describe('generator-diagram-js:project-files', () => {
 
-  before(() => {
-    return helpers
-      .run(path.join(__dirname, '../generators/project-files'))
-      .withOptions({
-        projectName: '@foo/bar',
-        projectDescription: 'YUP!',
-        githubRepository: 'foo/bar',
-        authorName: 'Walt',
-        authorUrl: 'http://wa.lt',
-        serviceCls: 'Foo',
-        serviceName: 'foo'
-      });
+  describe('normal package', function() {
+
+    before(() => {
+      return helpers
+        .run(path.join(__dirname, '../generators/project-files'))
+        .withOptions({
+          projectName: 'bar',
+          projectDescription: 'YUP!',
+          githubRepository: 'foo/bar',
+          authorName: 'Walt',
+          authorUrl: 'http://wa.lt',
+          serviceCls: 'Foo',
+          serviceName: 'foo'
+        });
+    });
+
+
+    it('creates files', () => {
+      assert.file([
+        'README.md',
+        'package.json'
+      ]);
+
+      assert.fileContent([
+        ['README.md', /# bar/],
+        ['package.json', /"name": "bar",/]
+      ]);
+    });
   });
 
 
-  it('creates files', () => {
-    assert.file([
-      'README.md',
-      'package.json'
-    ]);
+  describe('namespaced package', function() {
 
-    assert.fileContent([
-      ['README.md', /# @foo\/bar/],
-      ['package.json', /"name": "@foo\/bar",/]
-    ]);
+    before(() => {
+      return helpers
+        .run(path.join(__dirname, '../generators/project-files'))
+        .withOptions({
+          projectName: '@foo/bar',
+          projectDescription: 'YUP!',
+          githubRepository: 'foo/bar',
+          authorName: 'Walt',
+          authorUrl: 'http://wa.lt',
+          serviceCls: 'Foo',
+          serviceName: 'foo'
+        });
+    });
+
+
+    it('creates files', () => {
+      assert.file([
+        'README.md',
+        'package.json'
+      ]);
+
+      assert.fileContent([
+        ['README.md', /# @foo\/bar/],
+        ['package.json', /"name": "@foo\/bar",/, /"publishConfig": / ]
+      ]);
+    });
   });
-
 });
