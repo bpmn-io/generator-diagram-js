@@ -75,7 +75,7 @@ module.exports = class extends Generator {
 
     if (this.props.generateModule) {
 
-      this.log(chalk.bold('# creating service module'));
+      this.log('#', chalk.green('creating service module'));
 
       if (typeof this.props.initializeService === 'undefined') {
         const { initializeService } = await this.prompt([
@@ -92,8 +92,10 @@ module.exports = class extends Generator {
 
     } else {
       this.log(
-        chalk.bold('# Module exists at %s, you have to add your service to it manually'),
-        chalk.cyan(this.props.modulePath)
+        '#',
+        chalk.green('module exists at ') +
+        chalk.bold(this.props.modulePath) +
+        chalk.green(', add your service manually')
       );
     }
   }
