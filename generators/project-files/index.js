@@ -75,5 +75,10 @@ module.exports = class extends Generator {
       serviceName,
       serviceCls
     });
+
+    this.fs.copy(this.templatePath('**/.eslintrc'), this.destinationPath('.'));
+    this.fs.copy(this.templatePath('**/.gitignore'), this.destinationPath('.'));
+    this.fs.copy(this.templatePath('**/.npmignore'), this.destinationPath('.'));
+    this.fs.copy(this.templatePath('**/.travis.yml'), this.destinationPath('.'));
   }
 };

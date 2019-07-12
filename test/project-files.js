@@ -24,8 +24,13 @@ describe('generator-diagram-js:project-files', () => {
 
     it('creates files', () => {
       assert.file([
+        'test/.eslintrc',
         'README.md',
-        'package.json'
+        'package.json',
+        '.eslintrc',
+        '.gitignore',
+        '.npmignore',
+        '.travis.yml'
       ]);
 
       assert.fileContent([
@@ -55,8 +60,13 @@ describe('generator-diagram-js:project-files', () => {
 
     it('creates files', () => {
       assert.file([
+        'test/.eslintrc',
         'README.md',
-        'package.json'
+        'package.json',
+        '.eslintrc',
+        '.gitignore',
+        '.npmignore',
+        '.travis.yml'
       ]);
 
       assert.fileContent([
