@@ -89,7 +89,8 @@ module.exports = class extends Generator {
     this.composeWith(require.resolve('../service'), {
       serviceName,
       serviceCls,
-      serviceLocation: '.'
+      serviceLocation: '.',
+      initializeService: true
     });
 
     this.composeWith(require.resolve('../project-files'), {
