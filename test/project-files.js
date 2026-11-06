@@ -3,11 +3,11 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-describe('generator-diagram-js:project-files', () => {
+describe('generator-diagram-js:project-files', function() {
 
   describe('normal package', function() {
 
-    before(() => {
+    before(function() {
       return helpers
         .run(path.join(__dirname, '../generators/project-files'))
         .withOptions({
@@ -22,7 +22,7 @@ describe('generator-diagram-js:project-files', () => {
     });
 
 
-    it('creates files', () => {
+    it('creates files', function() {
       assert.file([
         'test/.eslintrc',
         'README.md',
@@ -38,8 +38,8 @@ describe('generator-diagram-js:project-files', () => {
       ]);
 
       assert.fileContent([
-        ['README.md', /# bar/],
-        ['package.json', /"name": "bar",/]
+        [ 'README.md', /# bar/ ],
+        [ 'package.json', /"name": "bar",/ ]
       ]);
     });
   });
@@ -47,7 +47,7 @@ describe('generator-diagram-js:project-files', () => {
 
   describe('namespaced package', function() {
 
-    before(() => {
+    before(function() {
       return helpers
         .run(path.join(__dirname, '../generators/project-files'))
         .withOptions({
@@ -62,7 +62,7 @@ describe('generator-diagram-js:project-files', () => {
     });
 
 
-    it('creates files', () => {
+    it('creates files', function() {
       assert.file([
         'test/.eslintrc',
         'README.md',
@@ -74,8 +74,8 @@ describe('generator-diagram-js:project-files', () => {
       ]);
 
       assert.fileContent([
-        ['README.md', /# @foo\/bar/],
-        ['package.json', /"name": "@foo\/bar",/, /"publishConfig": / ]
+        [ 'README.md', /# @foo\/bar/ ],
+        [ 'package.json', /"name": "@foo\/bar",/, /"publishConfig": / ]
       ]);
     });
 

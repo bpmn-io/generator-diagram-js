@@ -3,8 +3,8 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-describe('generator-diagram-js:service', () => {
-  before(() => {
+describe('generator-diagram-js:service', function() {
+  before(function() {
     return helpers
       .run(path.join(__dirname, '../generators/service'))
       .withPrompts({
@@ -14,13 +14,13 @@ describe('generator-diagram-js:service', () => {
       });
   });
 
-  it('creates files', () => {
-    assert.file(['Foo.js', 'index.js']);
+  it('creates files', function() {
+    assert.file([ 'Foo.js', 'index.js' ]);
 
     assert.fileContent([
-      ['Foo.js', /export default function Foo\(eventBus\)/],
-      ['index.js', /import Foo from '\.\/Foo';/ ],
-      ['index.js', /__init__: \[ 'foo' \],/ ]
+      [ 'Foo.js', /export default function Foo\(eventBus\)/ ],
+      [ 'index.js', /import Foo from '\.\/Foo';/ ],
+      [ 'index.js', /__init__: \[ 'foo' \],/ ]
     ]);
   });
 });
