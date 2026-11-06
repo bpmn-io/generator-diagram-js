@@ -3,9 +3,9 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-describe('generator-diagram-js:project', () => {
+describe('generator-diagram-js:project', function() {
 
-  before(() => {
+  before(function() {
     return helpers
       .run(path.join(__dirname, '../generators/project'))
       .withPrompts({
@@ -17,20 +17,20 @@ describe('generator-diagram-js:project', () => {
       });
   });
 
-  it('creates service', () => {
+  it('creates service', function() {
     assert.file([
       'Bar.js',
       'index.js'
     ]);
 
     assert.fileContent([
-      ['Bar.js', /export default function Bar\(eventBus\)/],
-      ['index.js', /import Bar from '\.\/Bar';/]
+      [ 'Bar.js', /export default function Bar\(eventBus\)/ ],
+      [ 'index.js', /import Bar from '\.\/Bar';/ ]
     ]);
   });
 
 
-  it('creates boilerplate', () => {
+  it('creates boilerplate', function() {
 
     assert.file([
       'README.md',
@@ -38,8 +38,8 @@ describe('generator-diagram-js:project', () => {
     ]);
 
     assert.fileContent([
-      ['README.md', /# @foo\/bar/],
-      ['package.json', /"name": "@foo\/bar",/]
+      [ 'README.md', /# @foo\/bar/ ],
+      [ 'package.json', /"name": "@foo\/bar",/ ]
     ]);
   });
 
